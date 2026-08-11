@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-black text-white font-sans antialiased;
+        font-feature-settings:
+            "rlig" 1,
+            "calt" 1;
+    }
+
+    ::selection {
+        @apply bg-vercel-blue text-white;
+    }
+}
+
+@layer utilities {
+    .text-gradient {
+        @apply bg-clip-text text-transparent;
+        background-image: linear-gradient(to right, #fff, #888);
+    }
+
+    .glass {
+        @apply bg-white/[0.04] backdrop-blur-md border border-white/[0.08];
+    }
+}
