@@ -121,7 +121,7 @@ These aren't template sites; they're custom-built systems handling real business
 
 <div align="center">
 
-![LeetCode Stats](https://leetcard.jacoblin.cool/amiraliqobadi?theme=dark&font=Fira%20Code&ext=heatmap)
+![LeetCode Stats](https://leetcard.jacoblin.cool/Amirali_Qobadi_?theme=dark&font=Fira%20Code&ext=heatmap)
 
 </div>
 
