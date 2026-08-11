@@ -89,7 +89,7 @@ const Hero = () => {
                 >
                     {[
                         {
-                            value: "4",
+                            value: "5",
                             label: "Production Platforms",
                             desc: "Serving real customers daily",
                         },
