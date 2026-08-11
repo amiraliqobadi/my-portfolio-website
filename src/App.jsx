@@ -1,3 +1,4 @@
+import { LanguageProvider } from "./i18n/LanguageContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -10,16 +11,18 @@ import "./index.css";
 
 function App() {
     return (
-        <div className="bg-black min-h-screen">
-            <Navbar />
-            <Hero />
-            <About />
-            <Projects />
-            <TechStack />
-            <Achievements />
-            <Contact />
-            <Footer />
-        </div>
+        <LanguageProvider>
+            <div className="bg-black min-h-screen">
+                <Navbar />
+                <Hero />
+                <About />
+                <Projects />
+                <TechStack />
+                <Achievements />
+                <Contact />
+                <Footer />
+            </div>
+        </LanguageProvider>
     );
 }
 

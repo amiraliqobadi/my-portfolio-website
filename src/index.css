@@ -17,6 +17,11 @@
     ::selection {
         @apply bg-vercel-blue text-white;
     }
+
+    /* حروف فارسی نباید letter-spacing داشته باشند */
+    [dir="rtl"] * {
+        letter-spacing: 0 !important;
+    }
 }
 
 @layer utilities {

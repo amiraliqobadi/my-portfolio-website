@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useLanguage } from "../i18n/useLanguage";
 
 const Contact = () => {
+    const { t } = useLanguage();
     const [copied, setCopied] = useState(false);
     const email = "amiraliqobadi5@gmail.com";
 
@@ -49,7 +51,7 @@ const Contact = () => {
         },
         {
             name: "LeetCode",
-            href: "https://leetcode.com/u/amiraliqobadi/",
+            href: "https://leetcode.com/u/Amirali_Qobadi_/",
             handle: "Top 6.9%",
             accent: "text-[#FFA116]",
             bg: "bg-[#FFA116]/10 border-[#FFA116]/20",
@@ -89,36 +91,30 @@ const Contact = () => {
 
     return (
         <section id="contact" className="py-24 px-6 relative overflow-hidden">
-            {/* Background glows */}
             <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-vercel-blue/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-vercel-violet/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative max-w-4xl mx-auto text-center">
-                {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/[0.02]">
                     <span className="relative flex w-2 h-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                     </span>
                     <span className="text-xs text-zinc-400">
-                        Available for work
+                        {t.contact.badge}
                     </span>
                 </div>
 
-                {/* عنوان اصلی */}
                 <h2 className="text-5xl md:text-7xl font-semibold tracking-tight mb-6">
-                    <span className="text-gradient">Let's build</span>
+                    <span className="text-gradient">{t.contact.title1}</span>
                     <br />
-                    <span className="text-gradient">something together.</span>
+                    <span className="text-gradient">{t.contact.title2}</span>
                 </h2>
 
                 <p className="text-lg md:text-xl text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed">
-                    Currently open to challenging full-stack roles and freelance
-                    projects. Drop me a line — I usually respond within 24
-                    hours.
+                    {t.contact.subtitle}
                 </p>
 
-                {/* ایمیل بزرگ (کلیک برای کپی) */}
                 <button
                     onClick={copyEmail}
                     className="group relative inline-flex items-center gap-3 px-6 py-4 mb-12 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all"
@@ -162,14 +158,12 @@ const Contact = () => {
                     </svg>
                 </button>
 
-                {/* پیام کپی شدن */}
                 {copied && (
                     <p className="text-sm text-green-400 -mt-8 mb-8 animate-fade-in">
-                        ✓ Email copied to clipboard
+                        {t.contact.copied}
                     </p>
                 )}
 
-                {/* شبکه‌های اجتماعی */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
                     {socialLinks.map((social) => (
                         <a
@@ -194,13 +188,12 @@ const Contact = () => {
                     ))}
                 </div>
 
-                {/* CTA نهایی */}
                 <div className="mt-14">
                     <a
                         href={`mailto:${email}`}
                         className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-zinc-200 transition-all"
                     >
-                        Send an Email
+                        {t.contact.send}
                         <svg
                             className="w-4 h-4"
                             fill="none"
