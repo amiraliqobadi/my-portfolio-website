@@ -1,7 +1,12 @@
 import React from "react";
 
+// تصاویر مدارک
+import icpcTehranImg from "../assets/certificates/icpc-asia-tehran-2024.png";
+import icpcIranImg from "../assets/certificates/icpc-iran-internet-2024.png";
+import maktabSharifImg from "../assets/certificates/maktab-sharif-django.png";
+
 /* ────────────────────────────────────────────
-   کارت‌های اصلی افتخارات
+   کارت‌های اصلی افتخارات (داده‌های واقعی)
 ──────────────────────────────────────────── */
 const achievements = [
     {
@@ -27,10 +32,10 @@ const achievements = [
             </svg>
         ),
         label: "ACM-ICPC",
-        value: "Regional",
-        title: "Contestant",
+        value: "ICPC",
+        title: "Asia Tehran Regional — Honorable",
         description:
-            "Selected among top algorithmic teams to represent at the ACM International Collegiate Programming Contest — the most prestigious algorithm competition worldwide.",
+            "Represented Islamic Azad University of Babol in the 2024 ICPC Asia Tehran Online Regional (Honorable) and the 20th Iran Internet Contest (Ranked) — competing against the country's top algorithmic teams.",
         accent: "vercel-blue",
         link: null,
     },
@@ -81,14 +86,14 @@ const achievements = [
         ),
         label: "BIAUPC",
         value: "2nd Place",
-        title: "Programming Contest",
+        title: 'Programming Contest — Team "Code"',
         description:
-            'Silver medal as part of team "Code" in the competitive programming contest — solving 8+ algorithmic challenges under time pressure.',
+            'Silver medal in the competitive programming contest — solving algorithmic challenges under time pressure as part of team "Code".',
         accent: "vercel-pink",
         link: null,
     },
     {
-        id: "chess",
+        id: "quera",
         icon: (
             <svg
                 className="w-5 h-5"
@@ -100,31 +105,54 @@ const achievements = [
                 <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M12 2L9 9h6l-3-7zM9 11h6v2a3 3 0 01-3 3 3 3 0 01-3-3v-2zM9 16h6v3H9z"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                 />
             </svg>
         ),
-        label: "Chess",
-        value: "1500+ ELO",
-        title: "Strategic Rating",
+        label: "Quera",
+        value: "7.01",
+        title: "Developer Rating",
         description:
-            "Active chess player. Pattern recognition, lookahead thinking, and calm-under-pressure decision making — skills that translate directly to system design.",
+            "Active competitive programmer on Quera: CodeStar Software Engineering (8.7), Khodahafez 1403 (6.6), and Bale Round 1 (6.4) — all in the Algorithm track.",
         accent: "vercel-violet",
-        link: null,
+        link: {
+            href: "https://quera.org/profile/AmiraliQobadi",
+            label: "View Profile",
+        },
     },
 ];
 
 /* ────────────────────────────────────────────
-   افتخارات تکمیلی (کوچک‌تر)
+   گالری مدارک (اسناد واقعی)
 ──────────────────────────────────────────── */
+const certificates = [
+    {
+        image: icpcTehranImg,
+        title: "ICPC Asia Tehran 2024",
+        subtitle: "Honorable — Online Regional Contest",
+        date: "Nov 2024",
+    },
+    {
+        image: icpcIranImg,
+        title: "20th Iran Internet Contest",
+        subtitle: "Ranked — ICPC",
+        date: "May 2024",
+    },
+    {
+        image: maktabSharifImg,
+        title: "Maktab Sharif",
+        subtitle: "400h Practical Python/Django",
+        date: "Jul 2024",
+    },
+];
+
 const additionalHonors = [
-    { text: "Algorithmic Contest Achievements — Quera Platform" },
-    { text: "Certificate of Merit — Azad University" },
-    { text: "Python/Django Development — 400h Practical Certification" },
+    { text: "Certificate of Merit — Islamic Azad University" },
+    { text: "B.Sc. Computational Science — Azad University, 2022" },
 ];
 
 /* ────────────────────────────────────────────
-   کارت اصلی
+   کارت اصلی افتخار
 ──────────────────────────────────────────── */
 const AchievementCard = ({ achievement }) => {
     const accentClasses = {
@@ -153,7 +181,6 @@ const AchievementCard = ({ achievement }) => {
                 >
                     {achievement.icon}
                 </div>
-
                 <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
                     {achievement.label}
                 </span>
@@ -165,7 +192,6 @@ const AchievementCard = ({ achievement }) => {
                 {achievement.value}
             </p>
             <p className="text-sm text-zinc-400 mb-4">{achievement.title}</p>
-
             <p className="text-sm text-zinc-400 leading-relaxed mb-5">
                 {achievement.description}
             </p>
@@ -214,7 +240,6 @@ const AchievementCard = ({ achievement }) => {
 const Achievements = () => {
     return (
         <section id="achievements" className="py-24 px-6 relative">
-            {/* Glow */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-vercel-pink/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-vercel-blue/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -239,11 +264,46 @@ const Achievements = () => {
                     </p>
                 </div>
 
-                {/* گرید کارت‌ها */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+                {/* گرید کارت‌های اصلی */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-14">
                     {achievements.map((a) => (
                         <AchievementCard key={a.id} achievement={a} />
                     ))}
+                </div>
+
+                {/* گالری مدارک واقعی */}
+                <div className="mb-12">
+                    <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-4">
+                        Verified Credentials
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                        {certificates.map((c) => (
+                            <a
+                                key={c.title}
+                                href={c.image}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group block rounded-xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-white/25 transition-all duration-300"
+                            >
+                                <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900">
+                                    <img
+                                        src={c.image}
+                                        alt={c.title}
+                                        loading="lazy"
+                                        className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+                                    />
+                                </div>
+                                <div className="p-4">
+                                    <p className="text-sm font-medium text-white mb-0.5">
+                                        {c.title}
+                                    </p>
+                                    <p className="text-xs text-zinc-500">
+                                        {c.subtitle} · {c.date}
+                                    </p>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
                 </div>
 
                 {/* افتخارات تکمیلی */}
@@ -276,7 +336,7 @@ const Achievements = () => {
                     </ul>
                 </div>
 
-                {/* نقل‌قول شطرنج (لمس شخصی) */}
+                {/* نقل‌قول شطرنج */}
                 <div className="mt-16 p-6 md:p-8 rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.02] to-transparent">
                     <div className="flex items-start gap-4">
                         <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-vercel-violet/10 border border-vercel-violet/20 flex items-center justify-center">
@@ -301,7 +361,7 @@ const Achievements = () => {
                                 habit I bring to every codebase I architect."
                             </p>
                             <p className="text-xs text-zinc-500 font-mono">
-                                — Outside of code
+                                — Outside of code · 1500+ ELO
                             </p>
                         </div>
                     </div>
