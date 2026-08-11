@@ -133,13 +133,13 @@ I'm always open to discussing new projects, creative ideas, or opportunities to 
 
 <div align="center">
 
-| Platform         | Link                                                                   |
-| ---------------- | ---------------------------------------------------------------------- |
-| 🌐 **Portfolio** | [amiraliqobadi.vercel.app](https://amiraliqobadi.vercel.app)           |
-| 💼 **LinkedIn**  | [Amirali Qobadi](https://www.linkedin.com/in/amirali-qobadi-4947362a9) |
-| 📧 **Email**     | [amiraliqobadi5@gmail.com](mailto:amiraliqobadi5@gmail.com)            |
-| 🐙 **GitHub**    | [@amiraliqobadi](https://github.com/amiraliqobadi)                     |
-| 💻 **LeetCode**  | [amiraliqobadi](https://leetcode.com/amiraliqobadi)                    |
+| Platform         | Link                                                             |
+| ---------------- | ---------------------------------------------------------------- |
+| 🌐 **Portfolio** | [amiraliqobadi.vercel.app](https://amiraliqobadi.vercel.app)     |
+| 💼 **LinkedIn**  | [Amirali Qobadi](https://www.linkedin.com/in/amirali-qobadi)     |
+| 📧 **Email**     | [amiraliqobadi5@gmail.com](mailto:amiraliqobadi5@gmail.com)      |
+| 🐙 **GitHub**    | [@amiraliqobadi](https://github.com/amiraliqobadi)               |
+| 💻 **LeetCode**  | [amiraliqobadi](https://https://leetcode.com/u/Amirali_Qobadi_/) |
 
 </div>
 
