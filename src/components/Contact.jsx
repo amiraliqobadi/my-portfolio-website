@@ -4,13 +4,27 @@ import { useLanguage } from "../i18n/useLanguage";
 const Contact = () => {
     const { t } = useLanguage();
     const [copied, setCopied] = useState(false);
+    const [copiedPhone, setCopiedPhone] = useState(false); // Added state for phone
+
     const email = "amiraliqobadi5@gmail.com";
+    // 👇 CHANGE THIS to your actual phone number
+    const phone = "+98 930 362 3107";
 
     const copyEmail = async () => {
         try {
             await navigator.clipboard.writeText(email);
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error("Copy failed", err);
+        }
+    };
+
+    const copyPhone = async () => {
+        try {
+            await navigator.clipboard.writeText(phone);
+            setCopiedPhone(true);
+            setTimeout(() => setCopiedPhone(false), 2000);
         } catch (err) {
             console.error("Copy failed", err);
         }
@@ -115,54 +129,112 @@ const Contact = () => {
                     {t.contact.subtitle}
                 </p>
 
-                <button
-                    onClick={copyEmail}
-                    className="group relative inline-flex items-center gap-3 px-6 py-4 mb-12 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all"
-                >
-                    <svg
-                        className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={1.5}
+                {/* ═══ Email & Phone Buttons ═══ */}
+                <div className="flex flex-col items-center gap-4 mb-12">
+                    {/* Email Button */}
+                    <button
+                        onClick={copyEmail}
+                        className="group relative inline-flex items-center gap-3 px-6 py-4 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all w-full max-w-md justify-center"
                     >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                    </svg>
-                    <span className="text-lg md:text-xl font-mono text-white">
-                        {email}
-                    </span>
-                    <svg
-                        className={`w-4 h-4 text-zinc-500 group-hover:text-white transition-all ${copied ? "text-green-400" : ""}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                    >
-                        {copied ? (
+                        <svg
+                            className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={1.5}
+                        >
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
-                                d="M5 13l4 4L19 7"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                             />
-                        ) : (
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                            />
-                        )}
-                    </svg>
-                </button>
+                        </svg>
+                        <span
+                            className="text-lg md:text-xl font-mono text-white"
+                            dir="ltr"
+                        >
+                            {email}
+                        </span>
+                        <svg
+                            className={`w-4 h-4 text-zinc-500 group-hover:text-white transition-all ${copied ? "text-green-400" : ""}`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            {copied ? (
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M5 13l4 4L19 7"
+                                />
+                            ) : (
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                />
+                            )}
+                        </svg>
+                    </button>
+                    {copied && (
+                        <p className="text-sm text-green-400 -mt-2 animate-fade-in">
+                            {t.contact.copied}
+                        </p>
+                    )}
 
-                {copied && (
-                    <p className="text-sm text-green-400 -mt-8 mb-8 animate-fade-in">
-                        {t.contact.copied}
-                    </p>
-                )}
+                    {/* Phone Button */}
+                    <button
+                        onClick={copyPhone}
+                        className="group relative inline-flex items-center gap-3 px-6 py-4 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/20 transition-all w-full max-w-md justify-center"
+                    >
+                        <svg
+                            className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={1.5}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.242.322-.663.404-1.02.201a17.9 17.9 0 01-7.95-7.95c-.203-.358-.121-.779.201-1.02l1.293-.97c.362-.271.527-.733.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                            />
+                        </svg>
+                        <span
+                            className="text-lg md:text-xl font-mono text-white"
+                            dir="ltr"
+                        >
+                            {phone}
+                        </span>
+                        <svg
+                            className={`w-4 h-4 text-zinc-500 group-hover:text-white transition-all ${copiedPhone ? "text-green-400" : ""}`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            {copiedPhone ? (
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M5 13l4 4L19 7"
+                                />
+                            ) : (
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                                />
+                            )}
+                        </svg>
+                    </button>
+                    {copiedPhone && (
+                        <p className="text-sm text-green-400 -mt-2 animate-fade-in">
+                            {t.contact.copied || "Copied!"}
+                        </p>
+                    )}
+                </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
                     {socialLinks.map((social) => (
