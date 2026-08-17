@@ -8,12 +8,10 @@ import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import "./index.css";
-import { Analytics } from "@vercel/analytics/next";
 function App() {
     return (
         <LanguageProvider>
             <div className="bg-black min-h-screen">
-                <Analytics />
                 <Navbar />
                 <Hero />
                 <About />

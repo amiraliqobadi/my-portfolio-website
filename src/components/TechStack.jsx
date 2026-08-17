@@ -19,7 +19,8 @@ const TechStack = () => {
     const { t } = useLanguage();
 
     return (
-        <section id="stack" className="py-24 px-6 relative">
+        // ADDED overflow-hidden HERE
+        <section id="stack" className="py-24 px-6 relative overflow-hidden">
             <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-vercel-violet/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative max-w-6xl mx-auto">

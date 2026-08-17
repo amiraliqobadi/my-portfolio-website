@@ -55,7 +55,8 @@ const About = () => {
     const { t } = useLanguage();
 
     return (
-        <section id="about" className="py-24 px-6 relative">
+        // ADDED overflow-hidden HERE
+        <section id="about" className="py-24 px-6 relative overflow-hidden">
             <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-vercel-cyan/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative max-w-6xl mx-auto">

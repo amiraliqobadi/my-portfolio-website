@@ -190,7 +190,8 @@ const Projects = () => {
     const regular = projectsData.slice(1);
 
     return (
-        <section id="projects" className="py-24 px-6 relative">
+        // ADDED overflow-hidden HERE
+        <section id="projects" className="py-24 px-6 relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-vercel-blue/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative max-w-6xl mx-auto">

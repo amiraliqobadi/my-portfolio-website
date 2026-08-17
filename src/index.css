@@ -34,3 +34,22 @@
         @apply bg-white/[0.04] backdrop-blur-md border border-white/[0.08];
     }
 }
+
+/* =========================================
+   NUCLEAR SCROLLBAR FIX (Replaces old code)
+   ========================================= */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html,
+body,
+* {
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
+}

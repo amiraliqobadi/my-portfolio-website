@@ -115,7 +115,11 @@ const Achievements = () => {
     const { t, lang } = useLanguage();
 
     return (
-        <section id="achievements" className="py-24 px-6 relative">
+        // ADDED overflow-hidden HERE
+        <section
+            id="achievements"
+            className="py-24 px-6 relative overflow-hidden"
+        >
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-vercel-pink/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-vercel-blue/5 rounded-full blur-3xl pointer-events-none" />
 
