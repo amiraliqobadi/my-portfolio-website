@@ -4,10 +4,8 @@ import { useLanguage } from "../i18n/useLanguage";
 const Contact = () => {
     const { t } = useLanguage();
     const [copied, setCopied] = useState(false);
-    const [copiedPhone, setCopiedPhone] = useState(false); // Added state for phone
-
+    const [copiedPhone, setCopiedPhone] = useState(false);
     const email = "amiraliqobadi5@gmail.com";
-    // 👇 CHANGE THIS to your actual phone number
     const phone = "+98 930 362 3107";
 
     const copyEmail = async () => {
