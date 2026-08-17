@@ -1,11 +1,11 @@
 import React from "react";
 import { useLanguage } from "../i18n/useLanguage";
 
-import studiometanoImg from "../assets/projects/studiometano.png";
-import hyperarianImg from "../assets/projects/hyperarian.png";
-import moshtaghmarketImg from "../assets/projects/moshtaghmarket.png";
-import hyperghedmatImg from "../assets/projects/hyperghedmat.png";
-import dastchinshomalImg from "../assets/projects/dastchinshomal.png";
+import studiometanoImg from "../assets/projects/studiometano.webp";
+import hyperarianImg from "../assets/projects/hyperarian.webp";
+import moshtaghmarketImg from "../assets/projects/moshtaghmarket.webp";
+import hyperghedmatImg from "../assets/projects/hyperghedmat.webp";
+import dastchinshomalImg from "../assets/projects/dastchinshomal.webp";
 
 const projectsData = [
     {

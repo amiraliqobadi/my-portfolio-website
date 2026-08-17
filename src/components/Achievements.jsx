@@ -1,9 +1,9 @@
 import React from "react";
 import { useLanguage } from "../i18n/useLanguage";
 
-import icpcTehranImg from "../assets/certificates/icpc-asia-tehran-2024.png";
-import icpcIranImg from "../assets/certificates/icpc-iran-internet-2024.png";
-import maktabSharifImg from "../assets/certificates/maktab-sharif-django.png";
+import icpcTehranImg from "../assets/certificates/icpc-asia-tehran-2024.webp";
+import icpcIranImg from "../assets/certificates/icpc-iran-internet-2024.webp";
+import maktabSharifImg from "../assets/certificates/maktab-sharif-django.webp";
 
 const certificatesImgs = [icpcTehranImg, icpcIranImg, maktabSharifImg];
 const certificatesNames = {
