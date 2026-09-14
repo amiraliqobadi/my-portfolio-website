@@ -23,8 +23,8 @@ export const LanguageProvider = ({ children }) => {
         // ═══ SEO پویا: عنوان صفحه ═══
         document.title =
             lang === "fa"
-                ? "امیرعلی قبادی — مهندس فول‌استک | React و Python"
-                : "Amirali Qobadi — Full-Stack Engineer | React & Python";
+                ? "امیرعلی قبادی — مهندس نرم‌افزار فول‌استک | پورتفولیو و رزومه"
+                : "Amirali Qobadi (امیرعلی قبادی) — Full-Stack Software Engineer";
 
         // ═══ SEO پویا: meta description ═══
         const metaDesc = document.querySelector('meta[name="description"]');
@@ -32,8 +32,8 @@ export const LanguageProvider = ({ children }) => {
             metaDesc.setAttribute(
                 "content",
                 lang === "fa"
-                    ? "مهندس فول‌استک با تخصص در Python (جنگو و FastAPI) و React.js. سازنده‌ی ۵ پلتفرم پروداکشن، شرکت‌کننده‌ی ICPC و رتبه‌ی Top 6.9% جهانی LeetCode. قائم‌شهر، ایران."
-                    : "Full-Stack Engineer specializing in Python (Django & FastAPI) and React.js. 5 production platforms shipped, ICPC contestant, LeetCode Top 6.9%. Based in Qaem Shahr, Iran.",
+                    ? "وب‌سایت و رزومه رسمی امیرعلی قبادی، مهندس نرم‌افزار فول‌استک با تخصص در Python (جنگو و FastAPI) و React.js. سازنده‌ی ۵ پلتفرم پروداکشن، شرکت‌کننده‌ی مسابقات برنامه‌نویسی ICPC و رتبه جهانی LeetCode Top 6.9%."
+                    : "Official portfolio of Amirali Qobadi (امیرعلی قبادی) — Full-Stack Software Engineer specializing in Python (Django & FastAPI) and React.js. 5 production platforms shipped, ICPC contestant, LeetCode Top 6.9%.",
             );
         }
 
@@ -48,8 +48,8 @@ export const LanguageProvider = ({ children }) => {
             ogDesc.setAttribute(
                 "content",
                 lang === "fa"
-                    ? "۵ پلتفرم پروداکشن · شرکت‌کننده‌ی ICPC · رتبه‌ی Top 6.9% جهانی LeetCode · React، جنگو، FastAPI، PostgreSQL، Redis"
-                    : "5 production platforms shipped · ICPC contestant · LeetCode Top 6.9% · React, Django, FastAPI, PostgreSQL, Redis",
+                    ? "امیرعلی قبادی · ۵ پلتفرم پروداکشن تجاری · شرکت‌کننده‌ی ICPC · رتبه‌ی Top 6.9% جهانی LeetCode · React، جنگو، FastAPI، PostgreSQL، Redis"
+                    : "Amirali Qobadi (امیرعلی قبادی) · 5 production platforms shipped · ICPC contestant · LeetCode Top 6.9% · React, Django, FastAPI, PostgreSQL, Redis",
             );
         }
     }, [lang]);
