@@ -56,7 +56,39 @@ function drawWorld(ctx, width, height, dpr, car, images, time) {
     const vignette = ctx.createRadialGradient(width / 2, height / 2, 120, width / 2, height / 2, Math.max(width, height) * .72); vignette.addColorStop(0, "rgba(0,0,0,0)"); vignette.addColorStop(1, "rgba(20,31,18,.22)"); ctx.fillStyle = vignette; ctx.fillRect(0, 0, width, height);
 }
 
-const TouchButton = ({ label, code, setKey, className = "" }) => <button className={`touch-key ${className}`} onPointerDown={(event) => { event.preventDefault(); setKey(code, true); }} onPointerUp={() => setKey(code, false)} onPointerCancel={() => setKey(code, false)} onPointerLeave={() => setKey(code, false)} aria-label={label}>{label}</button>;
+const TouchButton = ({ label, code, setKey, className = "" }) => (
+    <button
+        type="button"
+        className={`touch-key ${className}`}
+        onPointerDown={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            event.currentTarget.setPointerCapture?.(event.pointerId);
+            setKey(code, true);
+        }}
+        onPointerUp={(event) => {
+            event.preventDefault();
+            event.currentTarget.releasePointerCapture?.(event.pointerId);
+            event.currentTarget.blur();
+            setKey(code, false);
+        }}
+        onPointerCancel={(event) => {
+            event.preventDefault();
+            event.currentTarget.releasePointerCapture?.(event.pointerId);
+            event.currentTarget.blur();
+            setKey(code, false);
+        }}
+        onPointerLeave={(event) => {
+            if (event.pointerType === "mouse") setKey(code, false);
+        }}
+        onClick={(event) => event.preventDefault()}
+        onContextMenu={(event) => event.preventDefault()}
+        onDragStart={(event) => event.preventDefault()}
+        aria-label={label}
+    >
+        {label}
+    </button>
+);
 
 export default function InteractivePortfolio() {
     const { lang, toggleLang } = useLanguage(); const c = copy[lang]; const canvasRef = useRef(null); const keys = useRef({}); const car = useRef({ ...START, speed: 0 }); const images = useRef({});
