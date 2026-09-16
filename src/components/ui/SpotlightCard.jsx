@@ -30,7 +30,7 @@ export const SpotlightCard = ({
             ref={cardRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className={`relative rounded-2xl border border-white/10 bg-zinc-950/60 backdrop-blur-md overflow-hidden transition-all duration-300 ${className}`}
+            className={`relative rounded-2xl border border-black/5 dark:border-white/10 bg-white/60 dark:bg-zinc-950/60 backdrop-blur-md overflow-hidden transition-all duration-300 ${className}`}
             {...props}
         >
             {/* Dynamic Spotlight Glow */}

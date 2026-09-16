@@ -120,9 +120,9 @@ const Achievements = () => {
                     transition={{ duration: 0.5 }}
                     className="mb-14"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-white/10 bg-white/[0.03]">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-black/5 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03]">
                         <Trophy className="w-3.5 h-3.5 text-vercel-pink" />
-                        <span className="text-xs font-medium text-zinc-400">
+                        <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                             {t.achievements.badge}
                         </span>
                     </div>
@@ -131,7 +131,7 @@ const Achievements = () => {
                             {t.achievements.title}
                         </span>
                     </h2>
-                    <p className="text-base sm:text-lg text-zinc-400 max-w-2xl">
+                    <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl">
                         {t.achievements.subtitle}
                     </p>
                 </motion.div>
@@ -153,7 +153,7 @@ const Achievements = () => {
                                 <TiltCard maxTilt={5}>
                                     <SpotlightCard
                                         spotlightColor={meta.spotlight}
-                                        className="p-6 sm:p-7 h-full flex flex-col justify-between group"
+                                        className="p-6 sm:p-7 h-full flex flex-col justify-between group bg-white/50 dark:bg-transparent"
                                         onClick={triggerConfetti}
                                     >
                                         <div>
@@ -163,7 +163,7 @@ const Achievements = () => {
                                                 >
                                                     {achievementIcons[i]}
                                                 </div>
-                                                <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-widest font-semibold">
+                                                <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 uppercase tracking-widest font-semibold">
                                                     {meta.label}
                                                 </span>
                                             </div>
@@ -173,10 +173,10 @@ const Achievements = () => {
                                             >
                                                 {meta.value}
                                             </p>
-                                            <p className="text-sm font-semibold text-zinc-200 mb-3">
+                                            <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-200 mb-3">
                                                 {card.title}
                                             </p>
-                                            <p className="text-sm text-zinc-400 leading-relaxed mb-5">
+                                            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5">
                                                 {card.desc}
                                             </p>
                                         </div>
@@ -186,7 +186,7 @@ const Achievements = () => {
                                                 href={meta.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-300 group-hover:text-white transition-colors pt-2"
+                                                className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors pt-2"
                                             >
                                                 <span>{t.achievements.viewProfile}</span>
                                                 <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -217,22 +217,22 @@ const Achievements = () => {
                                     href={img}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group block rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-white/30 transition-all duration-300 shadow-lg"
+                                    className="group block rounded-2xl border border-black/5 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02] overflow-hidden hover:border-black/20 dark:hover:border-white/30 transition-all duration-300 shadow-sm dark:shadow-lg"
                                 >
-                                    <div className="relative aspect-[4/3] overflow-hidden bg-zinc-900">
+                                    <div className="relative aspect-[4/3] overflow-hidden bg-zinc-200 dark:bg-zinc-900">
                                         <img
                                             src={img}
                                             alt={certificatesNames.en[i]}
                                             loading="lazy"
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 dark:from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
                                     </div>
-                                    <div className="p-4 bg-zinc-950/60 backdrop-blur-md">
-                                        <p className="text-sm font-semibold text-white mb-0.5 group-hover:text-vercel-cyan transition-colors">
+                                    <div className="p-4 bg-white/80 dark:bg-zinc-950/60 backdrop-blur-md">
+                                        <p className="text-sm font-semibold text-zinc-900 dark:text-white mb-0.5 group-hover:text-vercel-cyan transition-colors">
                                             {certificatesNames[lang][i]}
                                         </p>
-                                        <p className="text-xs text-zinc-400">
+                                        <p className="text-xs text-zinc-600 dark:text-zinc-400">
                                             {t.achievements.certSubtitles[i]}
                                         </p>
                                     </div>
@@ -248,7 +248,7 @@ const Achievements = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5 }}
-                    className="pt-8 border-t border-white/10"
+                    className="pt-8 border-t border-black/10 dark:border-white/10"
                 >
                     <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-4">
                         {t.achievements.additionalTitle}
@@ -257,7 +257,7 @@ const Achievements = () => {
                         {t.achievements.additional.map((h, i) => (
                             <li
                                 key={i}
-                                className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm text-zinc-300 bg-white/[0.03] border border-white/10 rounded-full hover:border-white/20 transition-colors"
+                                className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/10 rounded-full hover:border-black/20 dark:hover:border-white/20 transition-colors"
                             >
                                 <CheckCircle className="w-3.5 h-3.5 text-vercel-cyan" />
                                 <span>{h}</span>
@@ -272,14 +272,14 @@ const Achievements = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5 }}
-                    className="mt-16 p-6 sm:p-8 rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] via-zinc-950/70 to-transparent backdrop-blur-xl"
+                    className="mt-16 p-6 sm:p-8 rounded-2xl border border-black/5 dark:border-white/10 bg-gradient-to-br from-black/[0.02] dark:from-white/[0.03] via-zinc-100/70 dark:via-zinc-950/70 to-transparent backdrop-blur-xl"
                 >
                     <div className="flex items-start gap-4">
                         <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-vercel-violet/10 border border-vercel-violet/25 flex items-center justify-center shadow-md">
                             <Quote className="w-6 h-6 text-vercel-violet" />
                         </div>
                         <div>
-                            <p className="text-zinc-200 text-sm sm:text-base leading-relaxed italic mb-3 font-light">
+                            <p className="text-zinc-800 dark:text-zinc-200 text-sm sm:text-base leading-relaxed italic mb-3 font-light">
                                 "{t.achievements.quote}"
                             </p>
                             <p className="text-xs text-zinc-500 font-mono">

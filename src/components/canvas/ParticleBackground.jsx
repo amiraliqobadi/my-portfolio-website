@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
+import { useTheme } from "../../hooks/useTheme";
 
 const ParticleBackground = ({ className = "" }) => {
     const canvasRef = useRef(null);
+    const { isDark } = useTheme();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -38,7 +40,7 @@ const ParticleBackground = ({ className = "" }) => {
             "rgba(121, 255, 225, ", // vercel cyan
             "rgba(0, 112, 243, ",   // vercel blue
             "rgba(121, 40, 202, ",  // vercel violet
-            "rgba(255, 255, 255, ", // white
+            isDark ? "rgba(255, 255, 255, " : "rgba(0, 0, 0, ",
         ];
 
         class Particle {
@@ -184,7 +186,7 @@ const ParticleBackground = ({ className = "" }) => {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("mouseleave", handleMouseLeave);
         };
-    }, []);
+    }, [isDark]);
 
     return (
         <canvas

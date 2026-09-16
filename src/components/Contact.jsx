@@ -116,12 +116,12 @@ const Contact = () => {
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5 }}
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-white/10 bg-white/[0.03]">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-black/5 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03]">
                         <span className="relative flex w-2 h-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                         </span>
-                        <span className="text-xs font-medium text-zinc-300">
+                        <span className="text-xs font-medium text-zinc-700 dark:text-zinc-300">
                             {t.contact.badge}
                         </span>
                     </div>
@@ -132,7 +132,7 @@ const Contact = () => {
                         <span className="text-gradient-cyan">{t.contact.title2}</span>
                     </h2>
 
-                    <p className="text-base sm:text-lg md:text-xl text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed">
                         {t.contact.subtitle}
                     </p>
                 </motion.div>
@@ -144,18 +144,18 @@ const Contact = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={copyEmail}
-                        className="group relative inline-flex items-center justify-between gap-3 px-6 py-4 rounded-2xl border border-white/10 bg-zinc-950/70 backdrop-blur-xl hover:border-vercel-cyan/50 hover:shadow-[0_0_30px_rgba(121,255,225,0.15)] transition-all w-full max-w-md"
+                        className="group relative inline-flex items-center justify-between gap-3 px-6 py-4 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl hover:border-vercel-cyan/50 hover:shadow-[0_0_30px_rgba(121,255,225,0.15)] transition-all w-full max-w-md"
                     >
                         <div className="flex items-center gap-3">
-                            <div className="w-9 h-9 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-zinc-400 group-hover:text-vercel-cyan transition-colors">
+                            <div className="w-9 h-9 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/5 dark:border-white/10 flex items-center justify-center text-zinc-600 dark:text-zinc-400 group-hover:text-vercel-cyan transition-colors">
                                 <Mail className="w-4 h-4" />
                             </div>
-                            <span className="text-base sm:text-lg font-mono text-white tracking-tight" dir="ltr">
+                            <span className="text-base sm:text-lg font-mono text-zinc-900 dark:text-white tracking-tight" dir="ltr">
                                 {email}
                             </span>
                         </div>
 
-                        <div className="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center text-zinc-400 group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-black/[0.03] dark:bg-white/[0.04] flex items-center justify-center text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
                             {copied ? (
                                 <Check className="w-4 h-4 text-emerald-400" />
                             ) : (
@@ -182,18 +182,18 @@ const Contact = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={copyPhone}
-                        className="group relative inline-flex items-center justify-between gap-3 px-6 py-4 rounded-2xl border border-white/10 bg-zinc-950/70 backdrop-blur-xl hover:border-vercel-blue/50 hover:shadow-[0_0_30px_rgba(0,112,243,0.15)] transition-all w-full max-w-md"
+                        className="group relative inline-flex items-center justify-between gap-3 px-6 py-4 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl hover:border-vercel-blue/50 hover:shadow-[0_0_30px_rgba(0,112,243,0.15)] transition-all w-full max-w-md"
                     >
                         <div className="flex items-center gap-3">
-                            <div className="w-9 h-9 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-zinc-400 group-hover:text-vercel-blue transition-colors">
+                            <div className="w-9 h-9 rounded-xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/5 dark:border-white/10 flex items-center justify-center text-zinc-600 dark:text-zinc-400 group-hover:text-vercel-blue transition-colors">
                                 <Phone className="w-4 h-4" />
                             </div>
-                            <span className="text-base sm:text-lg font-mono text-white tracking-tight" dir="ltr">
+                            <span className="text-base sm:text-lg font-mono text-zinc-900 dark:text-white tracking-tight" dir="ltr">
                                 {phone}
                             </span>
                         </div>
 
-                        <div className="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center text-zinc-400 group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-black/[0.03] dark:bg-white/[0.04] flex items-center justify-center text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
                             {copiedPhone ? (
                                 <Check className="w-4 h-4 text-emerald-400" />
                             ) : (
@@ -222,7 +222,7 @@ const Contact = () => {
                         <TiltCard key={social.name} maxTilt={8}>
                             <SpotlightCard
                                 spotlightColor={social.spotlight}
-                                className={`p-5 text-center group cursor-pointer ${social.border}`}
+                                className={`p-5 text-center group cursor-pointer bg-white/50 dark:bg-transparent ${social.border}`}
                             >
                                 <a
                                     href={social.href}
@@ -235,10 +235,10 @@ const Contact = () => {
                                     >
                                         {social.icon}
                                     </div>
-                                    <p className="text-sm font-bold text-white mb-0.5">
+                                    <p className="text-sm font-bold text-zinc-900 dark:text-white mb-0.5">
                                         {social.name}
                                     </p>
-                                    <p className="text-xs text-zinc-400 font-mono">
+                                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
                                         {social.handle}
                                     </p>
                                 </a>
@@ -258,7 +258,7 @@ const Contact = () => {
                         whileHover={{ scale: 1.04 }}
                         whileTap={{ scale: 0.98 }}
                         href={`mailto:${email}`}
-                        className="inline-flex items-center gap-2.5 px-8 py-4 bg-white text-black font-semibold rounded-2xl hover:bg-zinc-100 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                        className="inline-flex items-center gap-2.5 px-8 py-4 bg-black dark:bg-white text-white dark:text-black font-semibold rounded-2xl hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-all shadow-sm dark:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
                     >
                         <span>{t.contact.send}</span>
                         <ArrowRight

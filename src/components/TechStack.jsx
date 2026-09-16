@@ -79,16 +79,16 @@ const TechStack = () => {
                     transition={{ duration: 0.5 }}
                     className="mb-14"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-white/10 bg-white/[0.03]">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-black/5 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03]">
                         <span className="w-1.5 h-1.5 rounded-full bg-vercel-violet" />
-                        <span className="text-xs font-medium text-zinc-400">
+                        <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                             {t.stack.badge}
                         </span>
                     </div>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
                         <span className="text-gradient">{t.stack.title}</span>
                     </h2>
-                    <p className="text-base sm:text-lg text-zinc-400 max-w-2xl">
+                    <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl">
                         {t.stack.subtitle}
                     </p>
                 </motion.div>
@@ -110,12 +110,12 @@ const TechStack = () => {
                                     className="p-6 h-full flex flex-col justify-between"
                                 >
                                     <div>
-                                        <div className="flex items-center justify-between gap-2 mb-6 pb-3 border-b border-white/5">
+                                        <div className="flex items-center justify-between gap-2 mb-6 pb-3 border-b border-black/5 dark:border-white/5">
                                             <div className="flex items-center gap-2.5">
                                                 <span
                                                     className={`w-2 h-2 rounded-full ${color.dot} shadow-[0_0_8px_currentColor]`}
                                                 />
-                                                <h3 className="text-sm font-bold text-white tracking-wide">
+                                                <h3 className="text-sm font-bold text-zinc-900 dark:text-white tracking-wide">
                                                     {category.name}
                                                 </h3>
                                             </div>
@@ -127,10 +127,10 @@ const TechStack = () => {
                                                 (detail, itemIndex) => (
                                                     <li
                                                         key={itemIndex}
-                                                        className="group/item flex items-start gap-3 p-2 -mx-2 rounded-lg hover:bg-white/[0.04] transition-colors"
+                                                        className="group/item flex items-start gap-3 p-2 -mx-2 rounded-lg hover:bg-black/[0.03] dark:hover:bg-white/[0.04] transition-colors"
                                                     >
                                                         <div
-                                                            className={`flex-shrink-0 w-8 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[11px] font-bold ${color.text} font-mono group-hover/item:border-white/20 transition-all`}
+                                                            className={`flex-shrink-0 w-8 h-8 rounded-lg bg-black/[0.02] dark:bg-white/[0.04] border border-black/10 dark:border-white/[0.08] flex items-center justify-center text-[11px] font-bold ${color.text} font-mono group-hover/item:border-black/20 dark:group-hover/item:border-white/20 transition-all`}
                                                         >
                                                             {itemNames[catIndex][
                                                                 itemIndex
@@ -139,14 +139,14 @@ const TechStack = () => {
                                                                 .toUpperCase()}
                                                         </div>
                                                         <div className="flex-1 min-w-0">
-                                                            <p className="text-sm font-semibold text-white leading-tight">
+                                                            <p className="text-sm font-semibold text-zinc-900 dark:text-white leading-tight">
                                                                 {
                                                                     itemNames[catIndex][
                                                                         itemIndex
                                                                     ]
                                                                 }
                                                             </p>
-                                                            <p className="text-xs text-zinc-400 mt-0.5">
+                                                            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
                                                                 {detail}
                                                             </p>
                                                         </div>
@@ -167,7 +167,7 @@ const TechStack = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5 }}
-                    className="mt-16 pt-12 border-t border-white/10"
+                    className="mt-16 pt-12 border-t border-black/10 dark:border-white/10"
                 >
                     <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-6">
                         {t.stack.numbersTitle}
@@ -179,10 +179,10 @@ const TechStack = () => {
                                 spotlightColor="rgba(121, 40, 202, 0.1)"
                                 className="p-5"
                             >
-                                <p className="text-3xl font-bold text-white mb-1 font-mono tracking-tight text-gradient-purple">
+                                <p className="text-3xl font-bold text-zinc-900 dark:text-white mb-1 font-mono tracking-tight text-gradient-purple">
                                     {num.value}
                                 </p>
-                                <p className="text-xs sm:text-sm text-zinc-400 font-medium">
+                                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-medium">
                                     {num.label}
                                 </p>
                             </SpotlightCard>

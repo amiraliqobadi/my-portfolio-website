@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useLanguage } from "../i18n/useLanguage";
-import { Mail, Sparkles } from "lucide-react";
+import { useTheme } from "../hooks/useTheme";
+import { Mail, Sparkles, Sun, Moon } from "lucide-react";
 
 const Navbar = () => {
     const { t, lang, toggleLang } = useLanguage();
+    const { theme, toggleTheme } = useTheme();
     const [scrolled, setScrolled] = useState(false);
 
     // Scroll progress bar
@@ -38,8 +40,8 @@ const Navbar = () => {
                 <div
                     className={`max-w-6xl mx-auto h-14 px-4 sm:px-5 flex items-center justify-between rounded-full transition-all duration-500 pointer-events-auto ${
                         scrolled
-                            ? "bg-zinc-950/80 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
-                            : "bg-white/[0.02] backdrop-blur-md border border-white/5"
+                            ? "bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border border-black/5 dark:border-white/10 shadow-sm dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+                            : "bg-white/40 dark:bg-white/[0.02] backdrop-blur-md border border-black/5 dark:border-white/5"
                     }`}
                 >
                     {/* Logo */}
@@ -47,33 +49,33 @@ const Navbar = () => {
                         <motion.div
                             whileHover={{ scale: 1.05, rotate: [0, -5, 5, 0] }}
                             transition={{ duration: 0.3 }}
-                            className="w-8 h-8 rounded-lg bg-gradient-to-br from-white to-zinc-200 text-black flex items-center justify-center font-bold text-xs shadow-md"
+                            className="w-8 h-8 rounded-lg bg-gradient-to-br from-zinc-700 to-zinc-900 dark:from-white dark:to-zinc-200 text-white dark:text-black flex items-center justify-center font-bold text-xs shadow-md"
                         >
                             AQ
                         </motion.div>
-                        <span className="font-semibold text-sm tracking-tight hidden sm:flex items-center gap-1.5 text-zinc-200 group-hover:text-white transition-colors">
+                        <span className="font-semibold text-sm tracking-tight hidden sm:flex items-center gap-1.5 text-zinc-700 group-hover:text-black dark:text-zinc-200 dark:group-hover:text-white transition-colors">
                             {t.nav.name}
                             <Sparkles className="w-3 h-3 text-vercel-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
                         </span>
                     </a>
 
                     {/* Navigation Links */}
-                    <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] p-1 rounded-full border border-white/5">
+                    <nav className="hidden md:flex items-center gap-1 bg-black/[0.03] dark:bg-white/[0.03] p-1 rounded-full border border-black/5 dark:border-white/5">
                         {t.nav.links.map((link) => (
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className="px-3.5 py-1 text-xs font-medium text-zinc-400 hover:text-white transition-colors rounded-full hover:bg-white/[0.08]"
+                                className="px-3.5 py-1 text-xs font-medium text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white transition-colors rounded-full hover:bg-black/[0.05] dark:hover:bg-white/[0.08]"
                             >
                                 {link.label}
                             </a>
                         ))}
                     </nav>
 
-                    {/* Language Switcher & CTA */}
+                    {/* Controls & CTA */}
                     <div className="flex items-center gap-2">
                         {/* Smooth Sliding Language Toggle */}
-                        <div className="relative flex items-center rounded-full border border-white/10 bg-white/[0.03] p-0.5 text-xs font-medium">
+                        <div className="relative flex items-center rounded-full border border-black/5 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] p-0.5 text-xs font-medium">
                             <button
                                 onClick={toggleLang}
                                 className="relative z-10 px-2.5 py-1 text-xs font-medium transition-colors"
@@ -82,8 +84,8 @@ const Navbar = () => {
                                 <span
                                     className={
                                         lang === "en"
-                                            ? "text-black font-semibold"
-                                            : "text-zinc-400 hover:text-white"
+                                            ? "text-black dark:text-black font-semibold"
+                                            : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
                                     }
                                 >
                                     EN
@@ -97,8 +99,8 @@ const Navbar = () => {
                                 <span
                                     className={
                                         lang === "fa"
-                                            ? "text-black font-semibold"
-                                            : "text-zinc-400 hover:text-white"
+                                            ? "text-black dark:text-black font-semibold"
+                                            : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
                                     }
                                 >
                                     فا
@@ -121,12 +123,21 @@ const Navbar = () => {
                             />
                         </div>
 
+                        {/* Theme Toggle Button */}
+                        <button
+                            onClick={toggleTheme}
+                            className="relative flex items-center justify-center w-8 h-8 rounded-full border border-black/5 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] text-zinc-600 dark:text-zinc-300 hover:bg-black/[0.08] dark:hover:bg-white/[0.08] transition-colors"
+                            aria-label="Toggle theme"
+                        >
+                            {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                        </button>
+
                         {/* Contact CTA */}
                         <motion.a
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             href="mailto:amiraliqobadi5@gmail.com"
-                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs rounded-full bg-white text-black font-medium hover:bg-zinc-100 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs rounded-full bg-zinc-900 text-white dark:bg-white dark:text-black font-medium hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-sm dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
                         >
                             <Mail className="w-3 h-3" />
                             <span className="hidden sm:inline">{t.nav.cta}</span>

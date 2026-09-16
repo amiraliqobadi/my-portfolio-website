@@ -49,12 +49,12 @@ const About = () => {
                     {/* Holographic Interactive Avatar Card */}
                     <motion.div variants={itemVariants} className="relative mx-auto md:mx-0">
                         <TiltCard maxTilt={12} className="group">
-                            <div className="w-44 h-44 sm:w-52 sm:h-52 rounded-3xl bg-gradient-to-br from-white/[0.08] via-zinc-900 to-black border border-white/15 flex flex-col items-center justify-center relative overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.6)] group-hover:border-vercel-cyan/40 transition-colors duration-500">
+                            <div className="w-44 h-44 sm:w-52 sm:h-52 rounded-3xl bg-gradient-to-br from-black/[0.05] dark:from-white/[0.08] via-zinc-100 dark:via-zinc-900 to-white dark:to-black border border-black/10 dark:border-white/15 flex flex-col items-center justify-center relative overflow-hidden shadow-md dark:shadow-[0_12px_40px_rgba(0,0,0,0.6)] hover:border-vercel-cyan/30 dark:group-hover:border-vercel-cyan/40 transition-colors duration-500">
                                 {/* Grid texture */}
                                 <div
                                     className="absolute inset-0 opacity-[0.2]"
                                     style={{
-                                        backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
+                                        backgroundImage: `linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)`,
                                         backgroundSize: "20px 20px",
                                     }}
                                 />
@@ -66,19 +66,19 @@ const About = () => {
                                     AQ
                                 </span>
 
-                                <div className="absolute bottom-2 flex items-center gap-1 text-[10px] font-mono text-zinc-400">
+                                <div className="absolute bottom-2 flex items-center gap-1 text-[10px] font-mono text-zinc-500 dark:text-zinc-400">
                                     <span>Amirali Qobadi</span>
                                 </div>
                             </div>
                         </TiltCard>
 
                         {/* Available status pill */}
-                        <div className="absolute -bottom-3 -right-2 sm:-right-3 flex items-center gap-1.5 px-3 py-1.5 bg-black/90 border border-white/15 rounded-full shadow-2xl backdrop-blur-md">
+                        <div className="absolute -bottom-3 -right-2 sm:-right-3 flex items-center gap-1.5 px-3 py-1.5 bg-white/90 dark:bg-black/90 border border-black/10 dark:border-white/15 rounded-full shadow-md dark:shadow-2xl backdrop-blur-md">
                             <span className="relative flex w-2 h-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                             </span>
-                            <span className="text-xs text-zinc-300 font-medium">
+                            <span className="text-xs text-zinc-700 dark:text-zinc-300 font-medium">
                                 {t.about.available}
                             </span>
                         </div>
@@ -86,9 +86,9 @@ const About = () => {
 
                     {/* Content */}
                     <div>
-                        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-white/10 bg-white/[0.03]">
+                        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full border border-black/5 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03]">
                             <span className="w-1.5 h-1.5 rounded-full bg-vercel-cyan" />
-                            <span className="text-xs font-medium text-zinc-400">
+                            <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                                 {t.about.badge}
                             </span>
                         </motion.div>
@@ -104,7 +104,7 @@ const About = () => {
 
                         <motion.div
                             variants={itemVariants}
-                            className="space-y-4 text-base md:text-lg text-zinc-400 leading-relaxed mb-8"
+                            className="space-y-4 text-base md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8"
                         >
                             <p>{t.about.p1}</p>
                             <p>{t.about.p2}</p>
@@ -120,9 +120,9 @@ const About = () => {
                                 <SpotlightCard
                                     key={i}
                                     spotlightColor="rgba(121, 255, 225, 0.1)"
-                                    className="p-4"
+                                    className="p-4 bg-white/50 dark:bg-transparent"
                                 >
-                                    <div className="flex items-center gap-2 text-zinc-400 text-xs mb-2">
+                                    <div className="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 text-xs mb-2">
                                         {factIcons[i]}
                                         <span className="uppercase tracking-wider font-mono font-medium">
                                             {fact.label}
@@ -131,8 +131,8 @@ const About = () => {
                                     <p
                                         className={`text-sm font-semibold ${
                                             fact.highlight
-                                                ? "text-emerald-400"
-                                                : "text-white"
+                                                ? "text-emerald-600 dark:text-emerald-400"
+                                                : "text-zinc-900 dark:text-white"
                                         }`}
                                     >
                                         {fact.value}
@@ -149,7 +149,7 @@ const About = () => {
                                 href="/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/15 bg-white/[0.03] hover:bg-white/[0.08] hover:border-white/30 transition-all text-sm font-medium text-zinc-200 shadow-sm"
+                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-black/10 dark:border-white/15 bg-black/[0.03] dark:bg-white/[0.03] hover:bg-black/[0.08] dark:hover:bg-white/[0.08] hover:border-black/20 dark:hover:border-white/30 transition-all text-sm font-medium text-zinc-800 dark:text-zinc-200 shadow-sm"
                             >
                                 <FileText className="w-4 h-4 text-vercel-cyan" />
                                 <span>{t.about.resume}</span>

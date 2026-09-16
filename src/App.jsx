@@ -1,4 +1,5 @@
 import { LanguageProvider } from "./i18n/LanguageContext";
+import { ThemeProvider } from "./hooks/useTheme";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -11,8 +12,9 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import "./index.css";
 function App() {
     return (
-        <LanguageProvider>
-            <div className="bg-black min-h-screen">
+        <ThemeProvider>
+            <LanguageProvider>
+                <div className="bg-zinc-50 dark:bg-black min-h-screen text-zinc-900 dark:text-white transition-colors duration-500">
                 <Navbar />
                 <Hero />
                 <About />
@@ -23,7 +25,8 @@ function App() {
                 <Footer />
                 <SpeedInsights />
             </div>
-        </LanguageProvider>
+            </LanguageProvider>
+        </ThemeProvider>
     );
 }
 
