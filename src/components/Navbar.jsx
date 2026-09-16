@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../i18n/useLanguage";
 import { useTheme } from "../hooks/useTheme";
-import { Mail, Sparkles, Sun, Moon } from "lucide-react";
+import { Mail, Sparkles, Sun, Moon, Menu, X } from "lucide-react";
 
 const Navbar = () => {
     const { t, lang, toggleLang } = useLanguage();
     const { theme, toggleTheme } = useTheme();
     const [scrolled, setScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Scroll progress bar
     const { scrollYProgress } = useScroll();
@@ -137,13 +138,48 @@ const Navbar = () => {
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             href="mailto:amiraliqobadi5@gmail.com"
-                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs rounded-full bg-zinc-900 text-white dark:bg-white dark:text-black font-medium hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-sm dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+                            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs rounded-full bg-zinc-900 text-white dark:bg-white dark:text-black font-medium hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors shadow-sm dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
                         >
                             <Mail className="w-3 h-3" />
-                            <span className="hidden sm:inline">{t.nav.cta}</span>
+                            <span>{t.nav.cta}</span>
                         </motion.a>
+
+                        {/* Hamburger Menu Toggle (Mobile) */}
+                        <button
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="md:hidden relative flex items-center justify-center w-8 h-8 rounded-full border border-black/5 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] text-zinc-600 dark:text-zinc-300 hover:bg-black/[0.08] dark:hover:bg-white/[0.08] transition-colors"
+                            aria-label="Toggle menu"
+                        >
+                            {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+                        </button>
                     </div>
                 </div>
+
+                {/* Mobile Menu Dropdown */}
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-[68px] left-4 right-4 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border border-black/5 dark:border-white/10 rounded-2xl shadow-xl overflow-hidden md:hidden pointer-events-auto z-50"
+                        >
+                            <nav className="flex flex-col p-4 gap-1">
+                                {t.nav.links.map((link) => (
+                                    <a
+                                        key={link.href}
+                                        href={link.href}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="px-4 py-3 text-sm font-medium text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white transition-colors rounded-xl hover:bg-black/[0.05] dark:hover:bg-white/[0.08] flex items-center justify-between"
+                                    >
+                                        {link.label}
+                                    </a>
+                                ))}
+                            </nav>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </motion.header>
         </>
     );
